@@ -40,30 +40,33 @@ def init():
     for i in csvCheck:
         if(i.endswith(".csv")):
             print(tickInfo,"CSV Exists in current directory, which would you like to use? ")
+
             for i in os.listdir():
                 count+=1
                 dic[count]=i
+            print(sep)
+            # For each value, assign a key from 1-n. This will allow the user to select a number that corresponds to the csv file
             for key, value in dic.items():
-                print(key, ' : ', value)
+                print(green, key, red,'-->', cyan , value, reset)
+            print(sep)
+            print(green, "0", red,  "-->" + cyan +  "  New index")
             selection = input(tick + green + " Type the number of the file you would like\n" + reset)
+            # If selecing existing csv, exit function
+            if selection != "0":
+                csvName = dic[int(selection)]
+                print(tick, "You chose: ", csvName)
+                return csvName 
+            # If selection is to create a new CSV, carry on with creating it
+            else:
+                csvName = input(tick + yellow + "What do you want to name your CSV file?\n" + reset)
+                if not csvName.endswith(".csv"):
+                    csvName += ".csv"
+                with open(csvName, 'a') as f:
+                    write = csv.writer(f)
+                    write.writerow(headers)
 
-            csvName = dic[int(selection)]
-            print(tick, "You chose: ", csvName)
-
-            return csvName 
-
-    print("CSV Does not Exist")
-    csvName = input(tick + yellow + "What do you want to name your CSV file?\n" + reset)
-    if not csvName.endswith(".csv"):
-        csvName += ".csv"
-        print(csvName)
-    with open(csvName, 'a') as f:
-        write = csv.writer(f)
-        print("Adding headers")
-        write.writerow(headers)
-
-    print(csvName)
-    return csvName
+                print(csvName)
+                return csvName
 
 def writeCsv():
     with open(csvName, 'a') as f:
@@ -112,7 +115,6 @@ while True:
         # Append row to list called index (This is a list of a lists)
         index.append(strippedRow)
         writeCsv()
-        #readIndex(csvName)
 
 
 

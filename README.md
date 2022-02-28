@@ -20,7 +20,8 @@ Currently the indexer has the following features
 - Add CSV sorting (Sort by book then alphabetical)
 - Add handling for repeat entries
 - Only show CSVs when asking which index you want to work on
-- Add "Create new" option to csv selection option
+- ~~Add "Create new" option to csv selection option~~
+![](createIndex.gif)
 - Create a .sansindex file in home directory that stores indexes
 - Add delete option for index files
 - Add "ask for book" prompt on startup
