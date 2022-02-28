@@ -2,6 +2,7 @@
 import csv
 import os
 import signal 
+import pandas as pd
 from colorama import Fore, Style
 
 headers = ['Title', 'Description','Page','book']
@@ -68,6 +69,11 @@ def writeCsv():
     with open(csvName, 'a') as f:
         write = csv.writer(f)
         write.writerows(index)
+def readIndex(csvName):
+    print(tick, "Displaying abbreviated entries")
+    df = pd.read_csv(csvName)
+    #bottom = df.tail()
+    print(df)
 
 csvName = str(init())
 # Get user input
@@ -84,19 +90,29 @@ while True:
     elif newEntry == "new book":
         book = str(input(yellow + "Enter the book number\n"))
 
+    elif newEntry == "index":
+        readIndex(csvName)
+
     elif newEntry.count(',') != 2:
             print(newEntry.count(','))
             print(tickBad + " Try again, make sure you have 2 commas")
     else: 
         # Clear screen
         os.system("clear")
+
         # Split user input on commas and put into row variable
         row = newEntry.split(",")
+
+        # Strip whitespace
+        strippedRow = [x.strip(' ') for x in row]
+
         # append the book number to the end of the list 
-        row.append(book)
+        strippedRow.append(book)
+
         # Append row to list called index (This is a list of a lists)
-        index.append(row)
+        index.append(strippedRow)
         writeCsv()
+        #readIndex(csvName)
 
 
 

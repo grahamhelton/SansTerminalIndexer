@@ -14,7 +14,7 @@ Currently the indexer has the following features
 
 
 # Todo
-- Add index viewer within program (Pretty print index.csv)
+- ~~Add index viewer within program (Pretty print index.csv)~~
 - Add edit feature (edit previous index entries)
 - Add CSV sorting (Sort by book then alphabetical)
 - Add handling for repeat entries
@@ -23,3 +23,4 @@ Currently the indexer has the following features
 - Create a .sansindex file in home directory that stores indexes
 - Add delete option for index files
 - Add "ask for book" prompt on startup
+- Allow for input with no definition (term, pagenumber)
