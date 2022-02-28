@@ -13,3 +13,13 @@ Currently the indexer has the following features
 ![](indexShow.gif)
 
 
+# Todo
+- Add index viewer within program (Pretty print index.csv)
+- Add edit feature (edit previous index entries)
+- Add CSV sorting (Sort by book then alphabetical)
+- Add handling for repeat entries
+- Only show CSVs when asking which index you want to work on
+- Add "Create new" option to csv selection option
+- Create a .sansindex file in home directory that stores indexes
+- Add delete option for index files
+- Add "ask for book" prompt on startup

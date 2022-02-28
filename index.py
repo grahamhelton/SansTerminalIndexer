@@ -22,8 +22,10 @@ tickBad = Fore.YELLOW + "[" + Fore.RED + "X" + Fore.YELLOW+ "]" + reset
 awaitingInput = Fore.BLUE + "-----" + Fore.GREEN + "> " + reset
 tickInfo = Fore.BLUE + "[" + yellow + "!" + Fore.BLUE + "]" + reset
 
-print(tick, "Welcome to indexer")
+print(tick, "Welcome to Sans Terminal Indexer")
 print(tick, "Setting default book number to 1")
+print(tick, "Enter \"new book\" to change to the next book")
+
 # Handle control+c
 def handler(signum, frame):
     print(red, "Exiting")
@@ -95,3 +97,24 @@ while True:
         # Append row to list called index (This is a list of a lists)
         index.append(row)
         writeCsv()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
