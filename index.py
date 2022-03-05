@@ -8,7 +8,6 @@ from colorama import Fore, Style
 headers = ['Title', 'Description','Page','book']
 index = []
 row = []
-book = "1"
 dic = {}
 # Define formatting
 reset = Style.RESET_ALL
@@ -24,8 +23,8 @@ awaitingInput = Fore.BLUE + "-----" + Fore.GREEN + "> " + reset
 tickInfo = Fore.BLUE + "[" + yellow + "!" + Fore.BLUE + "]" + reset
 
 print(tick, "Welcome to Sans Terminal Indexer")
-print(tick, "Setting default book number to 1")
-print(tick, "Enter \"new book\" to change to the next book")
+print(tick, "Enter" , green, "\"new book\"" , reset, "to change to the next book")
+book = input("Which book are you currently working on?\n")
 
 # Handle control+c
 def handler(signum, frame):
@@ -36,16 +35,19 @@ signal.signal(signal.SIGINT, handler)
 # Kick off program, check if any .csv files are in directory, if not, prompt user to create one
 def init():
     count = 0
-    csvCheck = os.listdir('.')
+    csvCheck = os.listdir()
     for i in csvCheck:
-        if(i.endswith(".csv")):
+        if any(".csv" in c for c in csvCheck):
             print(tickInfo,"CSV Exists in current directory, which would you like to use? ")
 
-            for i in os.listdir():
-                count+=1
-                dic[count]=i
+            for x in os.listdir():
+                if x.endswith((".csv")):
+                    count+=1
+                    dic[count]=x
             print(sep)
-            # For each value, assign a key from 1-n. This will allow the user to select a number that corresponds to the csv file
+
+            # For each value, assign a key from 1-n. This will allow the user to select a number
+            # that corresponds to the csv file.
             for key, value in dic.items():
                 print(green, key, red,'-->', cyan , value, reset)
             print(sep)
@@ -57,23 +59,23 @@ def init():
                 print(tick, "You chose: ", csvName)
                 return csvName 
             # If selection is to create a new CSV, carry on with creating it
-            else:
-                csvName = input(tick + yellow + "What do you want to name your CSV file?\n" + reset)
-                if not csvName.endswith(".csv"):
-                    csvName += ".csv"
-                with open(csvName, 'a') as f:
-                    write = csv.writer(f)
-                    write.writerow(headers)
+        else:
+            csvName = input(tick + green + "Creating a new index, what do you want to name your CSV file?\n" + reset)
+            if not csvName.endswith(".csv"):
+                csvName += ".csv"
+            with open(csvName, 'a') as f:
+                write = csv.writer(f)
+                write.writerow(headers)
 
-                print(csvName)
-                return csvName
+            print(csvName)
+            return csvName
 
 def writeCsv():
     with open(csvName, 'a') as f:
         write = csv.writer(f)
         write.writerows(index)
 def readIndex(csvName):
-    print(tick, "Displaying abbreviated entries")
+    print(tick, "Displaying abbreviated entries for",cyan, csvName,reset)
     df = pd.read_csv(csvName)
     #bottom = df.tail()
     print(df)

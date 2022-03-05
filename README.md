@@ -19,10 +19,10 @@ Currently the indexer has the following features
 - Add edit feature (edit previous index entries)
 - Add CSV sorting (Sort by book then alphabetical)
 - Add handling for repeat entries
-- Only show CSVs when asking which index you want to work on
+- ~~Only show CSVs when asking which index you want to work on~~
 - ~~Add "Create new" option to csv selection option~~
 ![](createCsv.gif)
 - Create a .sansindex file in home directory that stores indexes
 - Add delete option for index files
-- Add "ask for book" prompt on startup
-- Allow for input with no definition (term, pagenumber)
+- ~~Add "ask for book" prompt on startup~~
+- ~~Allow for input with no definition (term, pagenumber)~~
