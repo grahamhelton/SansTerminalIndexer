@@ -22,7 +22,7 @@ Currently the indexer has the following features
 - ~~Only show CSVs when asking which index you want to work on~~
 - ~~Add "Create new" option to csv selection option~~
 ![](createCsv.gif)
-- Create a .sansindex file in home directory that stores indexes
+- ~~Create a .index file in home directory that stores indexes~~
 - Add delete option for index files
 - ~~Add "ask for book" prompt on startup~~
 - ~~Allow for input with no definition (term, pagenumber)~~
