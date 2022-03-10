@@ -6,7 +6,7 @@ import signal
 import pandas as pd
 from colorama import Fore, Style
 
-headers = ['Title', 'Description','Page','book']
+headers = ['Title', 'Page','book']
 index = []
 row = []
 dictionary = {}
@@ -62,6 +62,7 @@ def init():
                 if x.endswith((".csv")):
                     count+=1
                     dictionary[count]=x
+
             print(sep)
             # For each key and value, in the dictionary, print key, value for user to select from
             for key, value in dictionary.items():
@@ -71,8 +72,9 @@ def init():
         
             # Ask the user which file they would like
             selection = input(tick + green + " Type the number of the file you would like\n" + reset)
+            os.system("clear")
     
-                # If selecing existing csv, set csvName to choice and exit function
+            # If selecing existing csv, set csvName to choice and exit function
             if selection != "0":
                 csvName = dictionary[int(selection)]
                 print(tick, "You chose: ", csvName)
@@ -92,12 +94,12 @@ def init():
     return csvName
 
 def writeCsv():
+    os.system("clear")
     with open(csvName, 'a') as f:
         write = csv.writer(f)
         write.writerows(index)
 
 def readIndex(csvName):
-    os.system("clear")
     print(tick, "Displaying entries for",cyan, csvName,reset)
     df = pd.read_csv(csvName)
     #bottom = df.tail()
@@ -112,7 +114,7 @@ while True:
     index = []
     row = []
     # Get user input
-    newEntry = input(tick + green+" Enter your index entry. Format: Title, Description, Page\n" + reset)
+    newEntry = input(tick + green+" Enter your index entry. Format: Term,Page number\n" + reset)
     # Handle input
     if newEntry == "exit":
         writeCsv()
@@ -123,9 +125,10 @@ while True:
     elif newEntry == "index":
         readIndex(csvName)
 
-    elif newEntry.count(',') != 2:
-            print(newEntry.count(','))
-            print(tickBad + " Try again, make sure you have 2 commas")
+    elif newEntry.count(',') != 1:
+        print(newEntry.count(','))
+        print(tickBad + " Try again, make sure you have 1 commas")
+        
     else: 
         # Clear screen
         os.system("clear")
@@ -142,24 +145,3 @@ while True:
         # Append row to list called index (This is a list of a lists)
         index.append(strippedRow)
         writeCsv()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
