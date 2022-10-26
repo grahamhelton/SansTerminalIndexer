@@ -7,10 +7,7 @@ Currently the indexer has the following features
 - Takes input in the format of **Term, page number**. The three fields can be any an information you want in your index but it must be delimited by commas.
 - You index is saved in the directory the program is launched from everytime you enter a new entry
 
-# This is still a work in progress.
-
-
-![](indexShow.gif)
+![sansterminalindex](https://user-images.githubusercontent.com/19278569/198133246-16d24198-b968-4beb-8d0e-c7a88ac430c2.png)
 
 
 # Todo
@@ -19,7 +16,6 @@ Currently the indexer has the following features
 - Add edit feature (edit previous index entries)
 - Add CSV sorting (Sort by book then alphabetical)
 - Add handling for repeat entries
-- ~~Only show CSVs when asking which index you want to work on~~
 - ~~Add "Create new" option to csv selection option~~
 ![](createCsv.gif)
 - ~~Create a .index file in home directory that stores indexes~~
@@ -27,3 +23,4 @@ Currently the indexer has the following features
 - ~~Add "ask for book" prompt on startup~~
 - ~~Allow for input with no definition (term, pagenumber)~~
 - ~~Remove definition support (I found this was redundant and not helpful for an index)~~
+
