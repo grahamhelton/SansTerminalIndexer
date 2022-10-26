@@ -9,8 +9,7 @@ from colorama import Fore, Style
 headers = ['Title', 'Page','book']
 index = []
 row = []
-dictionary = {}
-# Define formatting
+dictionary = {} # Define formatting
 reset = Style.RESET_ALL
 red = Fore.RED
 cyan = Fore.CYAN
@@ -26,7 +25,7 @@ tickInfo = Fore.BLUE + "[" + yellow + "!" + Fore.BLUE + "]" + reset
 os.system("clear")
 print(tick, "Welcome to Sans Terminal Indexer")
 print(tick, "Enter" , green, "\"new book\"" , reset, "to change to the next book")
-book = input("Which book are you currently working on?\n")
+book = input("Which book number are you currently working on?\n")
 def path():
     home = expanduser("~")
     path = '/.Indexes/'
@@ -49,36 +48,32 @@ def init():
     path()
     count = 0
     csvCheck = os.listdir()
-    print(csvCheck)
 
     # If a .csv file exists in the current directory (~.Indexes) then prompt user for which one they would like to use
+    print(tickInfo,"CSV Exists in current directory, which would you like to use? ")
     for i in csvCheck:
-        print("printing elements", i)
         if (i.endswith(".csv")):
-            print(tickInfo,"CSV Exists in current directory, which would you like to use? ")
             # For each file that ends in .csv, add to dictionary, then for each value, assign a key from 1-n.
             # This will allow the user to select a number that corresponds to the csv file.
-            for x in os.listdir():
-                if x.endswith((".csv")):
-                    count+=1
-                    dictionary[count]=x
+            if i.endswith((".csv")):
+                count+=1
+                dictionary[count]=i
 
-            print(sep)
-            # For each key and value, in the dictionary, print key, value for user to select from
-            for key, value in dictionary.items():
-                print(green, key, red,'-->', cyan , value, reset)
-            print(sep)
-            print(green, "0", red,  "-->" + cyan +  "  New index")
+    # For each key and value, in the dictionary, print key and value for user to select from
+    for key, value in dictionary.items():
+        print(green, key, red,'-->', cyan , value, reset)
+    print(sep)
+    print(green, "0", red,  "-->" + cyan +  "  New index")
         
-            # Ask the user which file they would like
-            selection = input(tick + green + " Type the number of the file you would like\n" + reset)
-            os.system("clear")
+    # Ask the user which file they would like
+    selection = input(tick + green + " Type the number of the file you would like\n" + reset)
+    os.system("clear")
     
-            # If selecing existing csv, set csvName to choice and exit function
-            if selection != "0":
-                csvName = dictionary[int(selection)]
-                print(tick, "You chose: ", csvName)
-                return csvName 
+    # If selecing existing csv, set csvName to choice and exit function
+    if selection != "0":
+        csvName = dictionary[int(selection)]
+        print(tick, "You chose: ", csvName)
+        return csvName 
             
     csvName = input(tick + green + " Creating a new index, what do you want to name your CSV file?\n" + reset)
         
@@ -100,7 +95,7 @@ def writeCsv():
         write.writerows(index)
 
 def readIndex(csvName):
-    print(tick, "Displaying entries for",cyan, csvName,reset)
+    print(tick, "Displaying entries for",cyan,csvName,reset)
     df = pd.read_csv(csvName)
     #bottom = df.tail()
     print(df)
@@ -114,7 +109,15 @@ while True:
     index = []
     row = []
     # Get user input
-    newEntry = input(tick + green+" Enter your index entry. Format: Term,Page number\n" + reset)
+    print(green + "SANS Terminal Indexer")
+    print(sep)
+    print(green + "index ->" + purple + " View your current index")
+    print(green+ "new book ->"  + purple + " Change the book number you're working on")
+    print(green + "exit ->"  + purple + " exit the program")
+    print(sep)
+    readIndex(csvName)
+    print(sep)
+    newEntry = input(tick + green+" Enter your index entry. Format: Term,Page number\n" + purple +"STI~> " + yellow)
     # Handle input
     if newEntry == "exit":
         writeCsv()
