@@ -21,12 +21,10 @@ Currently the indexer has the following features
 
 # Todo
 - ~~Add index viewer within program (Pretty print index.csv)~~
-![](indexDisplay.gif)
 - Add edit feature (edit previous index entries)
 - Add CSV sorting (Sort by book then alphabetical)
 - Add handling for repeat entries
 - ~~Add "Create new" option to csv selection option~~
-![](createCsv.gif)
 - ~~Create a .index file in home directory that stores indexes~~
 - Add delete option for index files
 - ~~Add "ask for book" prompt on startup~~
