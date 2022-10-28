@@ -20,7 +20,6 @@ pip3 install pandas
 ![image](https://user-images.githubusercontent.com/19278569/198422695-3067552a-07a4-4822-a434-e0f00300a2e7.png)
 
 
-![createCsv](https://user-images.githubusercontent.com/19278569/198133658-1eca6c0f-7859-43e6-9f6d-faecde6ca89a.gif)
 
 
 # Todo
