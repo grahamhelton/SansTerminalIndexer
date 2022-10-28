@@ -1,8 +1,7 @@
 # Sans Terminal Indexer
 Sans terminal indexer is a program that I have been using for the last couple of months decrease the amount of time it takes to create an index from a $ANS book, although it could be used for any book you need to create an index of. The goal of this project is to create a very fast/efficient way to create an index. This program was greatly inspired by Matthew Toussain's [Voltaire](https://voltaire.publickey.io/) and Lesley Carhart's [Better GIAC testing With Pancakes](https://tisiphone.net/2015/08/18/giac-testing/)
 
-
-Currently the indexer has the following features are implemented
+All you need to know to get up and running is the indexer:
 - Creates/stores index in `~/.Indexes` folder
 - Takes input in the format of **Term, page number**. 
 
